@@ -112,6 +112,42 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## 📦 Distribuição (Executável)
+
+Para usuários que não querem instalar Python, foi gerado um executável standalone:
+
+### Como Obter o Executável
+
+1. Execute o comando de build:
+```shellscript
+pip install pyinstaller
+pyinstaller --onefile --windowed --name="WhatsApp_Sender" --hidden-import=selenium --hidden-import=webdriver_manager --hidden-import=customtkinter main.py
+```
+
+2. O executável será criado em `dist/WhatsApp_Sender.exe`
+
+### Usando o Executável
+
+- **Arquivo:** `WhatsApp_Sender.exe`
+- **Requisitos:** Apenas Google Chrome instalado
+- **Instruções:** Consulte o arquivo `INSTRUCOES.txt` na pasta `dist/`
+
+### Conteúdo da Distribuição
+
+```
+dist/
+├── WhatsApp_Sender.exe    # Executável principal (~52MB)
+├── INSTRUCOES.txt         # Instruções de uso
+└── [pastas de dados]      # uploads/, images/, logs/
+```
+
+### Script de Build
+
+Para facilitar futuras gerações do executável, execute:
+```shellscript
+./build_exe.bat
+```
+
 ## Estrutura do Projeto
 
 ```
