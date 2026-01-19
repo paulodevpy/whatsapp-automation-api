@@ -1,96 +1,85 @@
 # WhatsApp Sender
 
-Aplicacao desktop para envio de mensagens em massa via WhatsApp Web com interface grafica moderna.
+Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interface gráfica moderna e inteligente.
 
-## Indice
+## Índice
 
 - [Recursos](#recursos)
+- [Capturas de Tela](#capturas-de-tela)
 - [Requisitos](#requisitos)
-- [Instalacao](#instalacao)
+- [Instalação](#instalação)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Como Usar](#como-usar)
-- [Variaveis de Template](#variaveis-de-template)
+- [Variáveis de Template](#variáveis-de-template)
 - [Formato da Planilha](#formato-da-planilha)
-- [Configuracoes](#configuracoes)
-- [Solucao de Problemas](#solucao-de-problemas)
-- [Licenca](#licenca)
+- [Configurações](#configurações)
+- [Solução de Problemas](#solução-de-problemas)
+- [Licença](#licença)
 
 ## Recursos
 
-- Interface grafica moderna com CustomTkinter
+### 🎨 Interface Moderna
+- Interface gráfica moderna com CustomTkinter
+- **Redimensionamento automático** da janela
+- **Rolagem inteligente** para conteúdo extenso
+- Tema dark/light automático
+
+### 📊 Gerenciamento de Dados
 - Suporte a planilhas Excel (.xlsx, .xls) e CSV
-- Envio de mensagens de texto personalizadas
-- Envio de imagens (opcional)
-- Variaveis curinga para personalizacao
-- Preview da mensagem antes do envio
+- **Detecção automática de colunas** e criação dinâmica de variáveis
+- Validação automática de telefones brasileiros
+- Formatação inteligente de números
+
+### 💬 Personalização Avançada
+- **Variáveis dinâmicas** baseadas nas colunas da planilha
+- **Variáveis padrão**: data atual, hora atual, saudação automática
+- **Derivação inteligente** de primeiro nome e sobrenome
+- Preview em tempo real da mensagem
+
+### 🤖 Automação Inteligente
+- **Gerenciamento automático do ChromeDriver**
+- Detecção automática de números sem WhatsApp
+- **Esperas inteligentes** com condições dinâmicas para conexões lentas
+- Pausas automáticas para evitar bloqueio
+- Sessão persistente (login único)
+
+### 📈 Monitoramento
 - Barra de progresso em tempo real
-- Log detalhado de envios
-- Estatisticas de envio (enviados, falhas, pulados)
-- Deteccao automatica de numeros sem WhatsApp
-- Validacao de telefones brasileiros
-- Pausas automaticas para evitar bloqueio
-- Sessao persistente (login unico)
+- Log detalhado de todos os envios
+- Estatísticas completas (enviados, falhas, pulados)
+- Relatórios de performance
+
+### 🖼️ Mídias
+- Envio de imagens (opcional)
+- Upload automático e otimizado
+- Suporte a múltiplos formatos
+
+## Capturas de Tela
+
+### Tela Principal
+![Tela Principal](screenshots/main_screen.png)
+*Tela principal mostrando a interface moderna com seletores de arquivo e editor de mensagens.*
+
+### Editor de Mensagens com Variáveis
+![Editor de Mensagens](screenshots/message_editor.png)
+*Editor mostrando as variáveis dinâmicas geradas automaticamente da planilha.*
+
+### Preview da Mensagem
+![Preview](screenshots/preview.png)
+*Preview em tempo real mostrando como a mensagem ficará para o contato.*
+
+### Painel de Progresso
+![Progresso](screenshots/progress.png)
+*Monitoramento em tempo real do envio com logs detalhados.*
 
 ## Requisitos
 
 - Python 3.8 ou superior
 - Google Chrome instalado
-- Conexao com internet
+- Conexão com internet
 - Conta no WhatsApp
 
-## Instalacao
-
-### 1. Clone ou baixe o projeto
-
-```bash
-git clone https://github.com/seu-usuario/whatsapp-sender.git
-cd whatsapp-sender
-
-
-Thought for 1sVou criar o README.md completo para o projeto:
-
-```markdown
-# WhatsApp Sender
-
-Aplicacao desktop para envio de mensagens em massa via WhatsApp Web com interface grafica moderna.
-
-## Indice
-
-- [Recursos](#recursos)
-- [Requisitos](#requisitos)
-- [Instalacao](#instalacao)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Como Usar](#como-usar)
-- [Variaveis de Template](#variaveis-de-template)
-- [Formato da Planilha](#formato-da-planilha)
-- [Configuracoes](#configuracoes)
-- [Solucao de Problemas](#solucao-de-problemas)
-- [Licenca](#licenca)
-
-## Recursos
-
-- Interface grafica moderna com CustomTkinter
-- Suporte a planilhas Excel (.xlsx, .xls) e CSV
-- Envio de mensagens de texto personalizadas
-- Envio de imagens (opcional)
-- Variaveis curinga para personalizacao
-- Preview da mensagem antes do envio
-- Barra de progresso em tempo real
-- Log detalhado de envios
-- Estatisticas de envio (enviados, falhas, pulados)
-- Deteccao automatica de numeros sem WhatsApp
-- Validacao de telefones brasileiros
-- Pausas automaticas para evitar bloqueio
-- Sessao persistente (login unico)
-
-## Requisitos
-
-- Python 3.8 ou superior
-- Google Chrome instalado
-- Conexao com internet
-- Conta no WhatsApp
-
-## Instalacao
+## Instalação
 
 ### 1. Clone ou baixe o projeto
 
@@ -111,13 +100,13 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Instale as dependencias
+### 3. Instale as dependências
 
 ```shellscript
 pip install -r requirements.txt
 ```
 
-### 4. Execute a aplicacao
+### 4. Execute a aplicação
 
 ```shellscript
 python main.py
@@ -125,14 +114,16 @@ python main.py
 
 ## Estrutura do Projeto
 
-```plaintext
+```
 whatsapp_sender/
 ├── main.py                     # Ponto de entrada
-├── requirements.txt            # Dependencias
-├── README.md                   # Documentacao
+├── requirements.txt            # Dependências
+├── README.md                   # Documentação
+├── .gitignore                  # Arquivos ignorados pelo Git
+├── screenshots/                # Capturas de tela
 ├── src/
 │   ├── __init__.py
-│   ├── config.py               # Configuracoes centralizadas
+│   ├── config.py               # Configurações centralizadas
 │   ├── models/
 │   │   ├── __init__.py
 │   │   ├── contact.py          # Modelo de contato
@@ -140,7 +131,7 @@ whatsapp_sender/
 │   ├── services/
 │   │   ├── __init__.py
 │   │   ├── spreadsheet_service.py  # Leitura de planilhas
-│   │   ├── phone_service.py        # Validacao de telefones
+│   │   ├── phone_service.py        # Validação de telefones
 │   │   └── whatsapp_service.py     # Envio via WhatsApp Web
 │   ├── gui/
 │   │   ├── __init__.py
@@ -152,26 +143,22 @@ whatsapp_sender/
 │   │       ├── message_editor.py   # Editor de mensagem
 │   │       ├── preview_panel.py    # Preview da mensagem
 │   │       ├── progress_panel.py   # Progresso e logs
-│   │       └── control_panel.py    # Botoes de controle
+│   │       └── control_panel.py    # Botões de controle
 │   └── utils/
 │       └── __init__.py
 ├── uploads/                    # Planilhas enviadas
 ├── images/                     # Imagens para envio
-├── logs/                       # Logs de execucao
-└── chrome_profile/             # Perfil do Chrome (sessao)
+├── logs/                       # Logs de execução
+└── chrome_profile/             # Perfil do Chrome (sessão)
 ```
 
 ## Como Usar
 
 ### Passo 1: Prepare sua planilha
 
-Crie uma planilha com pelo menos duas colunas:
+Crie uma planilha com pelo menos duas colunas. A aplicação detecta automaticamente os nomes das colunas.
 
-- **nome_completo** (ou: nome, name)
-- **telefone** (ou: phone, celular, whatsapp)
-
-
-### Passo 2: Abra a aplicacao
+### Passo 2: Abra a aplicação
 
 ```shellscript
 python main.py
@@ -179,267 +166,223 @@ python main.py
 
 ### Passo 3: Carregue a planilha
 
-Clique em "Selecionar" na secao "Planilha de Contatos" e escolha seu arquivo.
+Clique em "Selecionar" na seção "Planilha de Contatos" e escolha seu arquivo. As variáveis serão geradas automaticamente.
 
 ### Passo 4: Adicione uma imagem (opcional)
 
-Se desejar enviar uma imagem junto com a mensagem, selecione-a na secao "Imagem".
+Se desejar enviar uma imagem junto, selecione-a na seção "Imagem".
 
 ### Passo 5: Escreva sua mensagem
 
-Use o editor de mensagem e insira variaveis clicando nos botoes disponíveis.
-
-Exemplo:
-
-```plaintext
-Ola {primeiro_nome}!
-
-Tudo bem com voce?
-
-Estamos entrando em contato para informar sobre nossa promocao especial.
-
-Atenciosamente,
-Equipe de Vendas
-```
+Use o editor de mensagem e insira variáveis clicando nos botões disponíveis. As variáveis são criadas dinamicamente baseadas na planilha.
 
 ### Passo 6: Verifique o preview
 
-Confira como a mensagem ficara para o primeiro contato.
+Confira como a mensagem ficará para o primeiro contato.
 
 ### Passo 7: Inicie o envio
 
-Clique em "Iniciar Envio". O navegador sera aberto automaticamente.
+Clique em "Iniciar Envio". O navegador abrirá automaticamente com o ChromeDriver gerenciado.
 
-### Passo 8: Faca login no WhatsApp Web
+### Passo 8: Faça login no WhatsApp Web
 
-Na primeira execucao, escaneie o QR Code com seu celular. Nas proximas vezes, o login sera automatico.
+Na primeira execução, escaneie o QR Code. Nas próximas vezes, o login será automático.
 
 ### Passo 9: Acompanhe o progresso
 
-Monitore o envio pelo painel de progresso e log.
+Monitore o envio pelo painel de progresso e logs em tempo real.
 
-## Variaveis de Template
+## Variáveis de Template
 
-Use estas variaveis no texto da mensagem para personalizacao:
+### Variáveis Dinâmicas (baseadas na planilha)
 
-| Variavel | Descricao | Exemplo
-|-----|-----|-----
-| `{primeiro_nome}` | Primeiro nome do contato | Joao
-| `{nome_completo}` | Nome completo | Joao Silva
-| `{ultimo_nome}` | Ultimo nome | Silva
-| `{telefone}` | Numero de telefone | 5511999998888
+A aplicação lê automaticamente as colunas da planilha e cria variáveis correspondentes:
 
+| Exemplo de Coluna | Variável Gerada | Descrição |
+|-------------------|-----------------|-----------|
+| nome_completo | `{nome_completo}` | Nome completo |
+| email | `{email}` | Email do contato |
+| cidade | `{cidade}` | Cidade |
+| idade | `{idade}` | Qualquer coluna personalizada |
 
-### Exemplo de uso
+### Variáveis Derivadas
 
-**Template:**
+Quando há uma coluna de nome, variáveis extras são criadas automaticamente:
 
-```plaintext
-Ola {primeiro_nome}!
+| Variável | Descrição | Exemplo |
+|----------|-----------|---------|
+| `{primeiro_nome}` | Primeiro nome | João |
+| `{ultimo_nome}` | Último nome | Silva |
 
-Seu cadastro com o nome {nome_completo} foi confirmado.
+### Variáveis Padrão
 
-Obrigado!
+| Variável | Descrição | Exemplo |
+|----------|-----------|---------|
+| `{data_atual}` | Data atual | 19/01/2026 |
+| `{hora_atual}` | Hora atual | 14:30 |
+| `{saudacao}` | Saudação automática | Bom dia / Boa tarde / Boa noite |
+
+### Exemplo Completo
+
+**Planilha:**
+| nome_completo | email | cidade |
+|---------------|-------|--------|
+| João Silva | joao@email.com | São Paulo |
+
+**Mensagem:**
+```
+{saudacao} {primeiro_nome}!
+
+Obrigado por se cadastrar em {cidade}.
+
+Seu email {email} foi confirmado.
+
+Enviado em {data_atual} às {hora_atual}.
 ```
 
-**Resultado para "Joao Silva":**
+**Resultado:**
+```
+Bom dia João!
 
-```plaintext
-Ola Joao!
+Obrigado por se cadastrar em São Paulo.
 
-Seu cadastro com o nome Joao Silva foi confirmado.
+Seu email joao@email.com foi confirmado.
 
-Obrigado!
+Enviado em 19/01/2026 às 14:30.
 ```
 
 ## Formato da Planilha
 
-### Colunas aceitas
-
-A aplicacao reconhece automaticamente as seguintes colunas:
+### Colunas Reconhecidas Automaticamente
 
 **Para nome:**
-
-- nome_completo
-- nome
-- name
-- full_name
-
+- nome_completo, nome, name, full_name
 
 **Para telefone:**
+- telefone, phone, celular, whatsapp, tel
 
-- telefone
-- phone
-- celular
-- whatsapp
-- tel
+**Outras colunas:** Qualquer nome será automaticamente uma variável.
 
+### Formato do Telefone
 
-### Formato do telefone
+| Formato | Exemplo |
+|---------|---------|
+| Apenas números | 11999998888 |
+| Com código do país | 5511999998888 |
+| Com zero | 011999998888 |
+| Formatado | (11) 99999-8888 |
 
-Os seguintes formatos sao aceitos:
+### Exemplo de Planilha
 
-| Formato | Exemplo
-|-----|-----|-----
-| Somente numeros | 11999998888
-| Com codigo do pais | 5511999998888
-| Com zero inicial | 011999998888
-| Com formatacao | (11) 99999-8888
+| nome_completo | telefone | email | cidade | empresa |
+|---------------|----------|-------|--------|---------|
+| João Silva | 11999998888 | joao@email.com | São Paulo | ABC Ltda |
+| Maria Santos | 21988887777 | maria@email.com | Rio | XYZ Corp |
 
+## Configurações
 
-A aplicacao normaliza automaticamente para o formato internacional.
-
-### Exemplo de planilha
-
-| nome_completo | telefone
-|-----|-----|-----
-| Joao Silva | 11999998888
-| Maria Santos | 21988887777
-| Pedro Oliveira | (31) 99999-6666
-
-
-## Configuracoes
-
-As configuracoes podem ser ajustadas no arquivo `src/config.py`:
+As configurações podem ser ajustadas em `src/config.py`:
 
 ```python
 @dataclass
 class AppConfig:
     # Tempos entre mensagens (segundos)
-    MIN_DELAY: int = 5      # Minimo
-    MAX_DELAY: int = 12     # Maximo
-    
+    MIN_DELAY: int = 5      # Mínimo
+    MAX_DELAY: int = 12     # Máximo
+
     # Timeouts
-    PAGE_TIMEOUT: int = 15      # Carregar pagina
-    MESSAGE_TIMEOUT: int = 10   # Enviar mensagem
-    
-    # Pausas automaticas
-    PAUSE_AFTER: int = 50       # Pausar apos X mensagens
-    PAUSE_DURATION: int = 60    # Duracao da pausa (segundos)
+    PAGE_TIMEOUT: int = 15      # Carregar página
+    MESSAGE_TIMEOUT: int = 20   # Enviar mensagem
+
+    # Pausas automáticas
+    PAUSE_AFTER: int = 50       # Pausar após X mensagens
+    PAUSE_DURATION: int = 60    # Duração da pausa
 ```
 
-### Ajustes recomendados
+### Ajustes Recomendados
 
-| Cenario | MIN_DELAY | MAX_DELAY | PAUSE_AFTER
-|-----|-----|-----
-| Conservador | 30 | 60 | 20
-| Moderado | 10 | 25 | 30
-| Rapido | 5 | 12 | 50
+| Cenário | MIN_DELAY | MAX_DELAY | PAUSE_AFTER |
+|---------|-----------|-----------|-------------|
+| Conservador | 30 | 60 | 20 |
+| Moderado | 10 | 25 | 30 |
+| Rápido | 5 | 12 | 50 |
 
+## Solução de Problemas
 
-## Solucao de Problemas
+### Erro: "Navegador não inicializa"
+**Causa:** Chrome não instalado ou versão incompatível.
 
-### Erro: "Navegador nao inicializa"
-
-**Causa:** Chrome nao instalado ou versao incompativel.
-
-**Solucao:**
-
+**Solução:**
 1. Instale ou atualize o Google Chrome
-2. Delete a pasta `chrome_profile` e tente novamente
+2. Delete a pasta `chrome_profile`
+3. O ChromeDriver será baixado automaticamente
 
+### Erro: "Timeout aguardando caixa de mensagem"
+**Causa:** Conexão lenta ou página não carregou.
 
-### Erro: "Timeout no login"
+**Solução:**
+1. Verifique sua conexão com a internet
+2. Aguarde mais tempo (timeouts aumentados automaticamente)
+3. Tente novamente
 
-**Causa:** QR Code nao escaneado a tempo.
+### Erro: "Colunas não encontradas"
+**Causa:** Nomes das colunas não reconhecidos.
 
-**Solucao:**
-
-1. Aumente o timeout em `whatsapp_service.py` (linha do `login`)
-2. Escaneie o QR Code mais rapidamente
-
-
-### Erro: "Colunas nao encontradas"
-
-**Causa:** Nomes das colunas nao reconhecidos.
-
-**Solucao:**
-
-1. Renomeie as colunas para `nome_completo` e `telefone`
-2. Ou use um dos nomes aceitos listados acima
-
+**Solução:**
+1. Use nomes descritivos para as colunas
+2. A aplicação detecta automaticamente qualquer coluna
 
 ### Muitos contatos "Sem WhatsApp"
+**Causa:** Números incorretos ou sem WhatsApp.
 
-**Causa:** Numeros incorretos ou sem WhatsApp.
+**Solução:**
+1. Verifique se os números estão corretos
+2. Confirme que possuem WhatsApp ativo
+3. Verifique o DDD
 
-**Solucao:**
+### Mensagens não estão sendo enviadas
+**Causa:** WhatsApp Web deslogou ou conexão instável.
 
-1. Verifique se os numeros estao corretos
-2. Confirme que os numeros possuem WhatsApp ativo
-3. Verifique se o DDD esta correto
-
-
-### Mensagens nao estao sendo enviadas
-
-**Causa:** WhatsApp Web deslogou ou conexao instavel.
-
-**Solucao:**
-
-1. Verifique sua conexao com a internet
-2. Delete a pasta `chrome_profile` e faca login novamente
-3. Verifique se seu WhatsApp no celular esta funcionando
-
-
-### Navegador fecha sozinho
-
-**Causa:** Erro no driver ou memoria insuficiente.
-
-**Solucao:**
-
-1. Feche outros programas para liberar memoria
-2. Atualize o Chrome para a versao mais recente
-3. Reinicie o computador
-
+**Solução:**
+1. Delete a pasta `chrome_profile` e faça login novamente
+2. Verifique se o WhatsApp no celular está funcionando
 
 ## Avisos Importantes
 
-1. **Use com responsabilidade:** O envio de mensagens em massa pode violar os Termos de Servico do WhatsApp.
-2. **Evite spam:** Envie apenas para contatos que consentiram em receber suas mensagens.
-3. **Limites:** O WhatsApp pode bloquear temporariamente contas que enviam muitas mensagens em pouco tempo.
-4. **Backup:** Faca backup dos seus contatos do WhatsApp antes de usar.
-5. **Teste:** Sempre teste com poucos contatos antes de enviar para listas grandes.
+1. **Use com responsabilidade:** Evite spam e respeite os Termos do WhatsApp
+2. **Limites:** O WhatsApp pode bloquear contas com envios excessivos
+3. **Backup:** Faça backup dos seus contatos
+4. **Teste:** Sempre teste com poucos contatos primeiro
 
+## Dependências
 
-## Dependencias
+| Pacote | Versão | Descrição |
+|--------|--------|-----------|
+| customtkinter | 5.2.1 | Interface gráfica moderna |
+| pandas | 2.1.4 | Manipulação de dados |
+| selenium | 4.17.2 | Automação do navegador |
+| webdriver-manager | 4.0.1 | Gerenciamento do ChromeDriver |
+| Pillow | 10.2.0 | Manipulação de imagens |
 
-| Pacote | Versao | Descricao
-|-----|-----|-----
-| customtkinter | 5.2.1 | Interface grafica moderna
-| pandas | 2.1.4 | Manipulacao de dados
-| openpyxl | 3.1.2 | Leitura de arquivos .xlsx
-| xlrd | 2.0.1 | Leitura de arquivos .xls
-| selenium | 4.17.2 | Automacao do navegador
-| webdriver-manager | 4.0.1 | Gerenciamento do ChromeDriver
-| Pillow | 10.2.0 | Manipulacao de imagens
+## Contribuição
 
+Contribuições são bem-vindas! Para contribuir:
 
-## Contribuicao
-
-Contribuicoes sao bem-vindas! Para contribuir:
-
-1. Faca um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudancas (`git commit -am 'Adiciona nova feature'`)
+1. Fork o projeto
+2. Crie uma branch (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
 4. Push para a branch (`git push origin feature/nova-feature`)
 5. Abra um Pull Request
 
+## Licença
 
-## Licenca
-
-Este projeto esta sob a licenca MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## Autor
 
-Desenvolvido com Python e CustomTkinter.
+Desenvolvido com ❤️ usando Python e CustomTkinter.
 
 ---
 
-**Aviso Legal:** Este software e fornecido "como esta", sem garantias de qualquer tipo. O uso e de responsabilidade do usuario. O autor nao se responsabiliza por bloqueios de conta ou qualquer outro problema decorrente do uso deste software.
-
-```plaintext
-
----
-
-O README inclui todas as informacoes necessarias para instalar, configurar e usar a aplicaca
+**Aviso Legal:** Este software é fornecido "como está", sem garantias. O uso é de responsabilidade do usuário.
 ```
