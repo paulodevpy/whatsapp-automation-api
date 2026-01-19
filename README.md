@@ -33,12 +33,6 @@ Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interf
 - Validação automática de telefones brasileiros
 - Formatação inteligente de números
 
-### 📊 Gerenciamento de Dados
-- Suporte a planilhas Excel (.xlsx, .xls) e CSV
-- **Detecção automática de colunas** e criação dinâmica de variáveis
-- Validação automática de telefones brasileiros
-- Formatação inteligente de números
-
 ### 💬 Personalização Avançada
 - **Variáveis dinâmicas** baseadas nas colunas da planilha
 - **Variáveis padrão**: data atual, hora atual, saudação automática
@@ -62,6 +56,29 @@ Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interf
 - Envio de imagens (opcional)
 - Upload automático e otimizado
 - Suporte a múltiplos formatos
+
+## 🆕 Últimas Melhorias (v1.0.0)
+
+### ✨ Branding e Identidade Visual
+- **Painel de branding personalizado** com arte ASCII exclusiva
+- **Identidade visual profissional** com cores temáticas
+- **Créditos do desenvolvedor** sempre visíveis na interface
+- **Botão "Sobre" integrado** para informações completas
+- **Ícones customizados** e elementos visuais únicos
+
+### 🎨 Interface Aprimorada
+- **Design moderno** com tema dark elegante
+- **Paleta de cores expandida** com accents azul, roxo e rosa
+- **Elementos visuais** com gradientes e efeitos
+- **Layout responsivo** otimizado para diferentes telas
+- **Experiência do usuário** refinada e intuitiva
+
+### 👨‍💻 Autoria Clara
+- **Nome profissional:** WhatsApp Sender Pro
+- **Desenvolvedor:** Paulo Dev (@paulodevpy)
+- **Contato direto:** paulodevpy@gmail.com
+- **Links sociais** integrados na aplicação
+- **Informações de versão** e data de lançamento
 
 ## Capturas de Tela
 
