@@ -1,6 +1,8 @@
-# WhatsApp Sender
+# 🚀 WhatsApp Sender Pro
 
 Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interface gráfica moderna e inteligente.
+
+**Desenvolvido com ❤️ por [@paulodevpy](https://github.com/paulodevpy) - paulodevpy@gmail.com**
 
 ## Índice
 
@@ -18,11 +20,18 @@ Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interf
 
 ## Recursos
 
-### 🎨 Interface Moderna
-- Interface gráfica moderna com CustomTkinter
-- **Redimensionamento automático** da janela
-- **Rolagem inteligente** para conteúdo extenso
-- Tema dark/light automático
+### 🎨 Interface Moderna e Branding
+- **Design elegante** com tema dark profissional
+- **Painel de branding** com arte ASCII personalizada
+- **Identidade visual** clara do desenvolvedor
+- **Botão "Sobre"** facilmente acessível
+- **Ícones e elementos visuais** customizados
+
+### 📊 Gerenciamento de Dados
+- Suporte a planilhas Excel (.xlsx, .xls) e CSV
+- **Detecção automática de colunas** e criação dinâmica de variáveis
+- Validação automática de telefones brasileiros
+- Formatação inteligente de números
 
 ### 📊 Gerenciamento de Dados
 - Suporte a planilhas Excel (.xlsx, .xls) e CSV
@@ -56,9 +65,9 @@ Aplicação desktop para envio de mensagens em massa via WhatsApp Web com interf
 
 ## Capturas de Tela
 
-### Tela Principal
+### Tela Principal com Branding
 ![Tela Principal](screenshots/main_screen.png)
-*Tela principal mostrando a interface moderna com seletores de arquivo e editor de mensagens.*
+*Tela principal mostrando a interface moderna com painel de branding personalizado e arte ASCII do desenvolvedor.*
 
 ### Editor de Mensagens com Variáveis
 ![Editor de Mensagens](screenshots/message_editor.png)
@@ -416,7 +425,12 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## Autor
 
-Desenvolvido com ❤️ usando Python e CustomTkinter.
+**👨‍💻 Paulo Dev**
+- **GitHub:** [@paulodevpy](https://github.com/paulodevpy)
+- **Email:** paulodevpy@gmail.com
+- **LinkedIn:** [Paulo Developer](https://linkedin.com/in/paulodevpy)
+
+*Desenvolvido com ❤️ usando Python, CustomTkinter e Selenium WebDriver*
 
 ---
 

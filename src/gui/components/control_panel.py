@@ -9,21 +9,23 @@ from src.gui.styles import Colors, Fonts
 
 class ControlPanel(ctk.CTkFrame):
     """Painel com botoes de controle"""
-    
+
     def __init__(
         self,
         master,
         on_start: Optional[Callable] = None,
         on_stop: Optional[Callable] = None,
         on_clear: Optional[Callable] = None,
+        on_about: Optional[Callable] = None,
         **kwargs
     ):
         super().__init__(master, fg_color="transparent", **kwargs)
-        
+
         self._on_start = on_start
         self._on_stop = on_stop
         self._on_clear = on_clear
-        
+        self._on_about = on_about
+
         self._create_widgets()
     
     def _create_widgets(self):
@@ -66,7 +68,24 @@ class ControlPanel(ctk.CTkFrame):
             height=45,
             width=100
         )
-        self._btn_clear.pack(side="left")
+        self._btn_clear.pack(side="left", padx=(0, 10))
+
+        # Espaçador
+        spacer = ctk.CTkFrame(self, fg_color="transparent", width=20)
+        spacer.pack(side="left")
+
+        # Botao Sobre
+        self._btn_about = ctk.CTkButton(
+            self,
+            text="👨‍💻 Sobre",
+            command=self._handle_about,
+            fg_color=Colors.ACCENT_BLUE,
+            hover_color="#2563eb",
+            font=(Fonts.FAMILY, Fonts.SIZE_NORMAL, "bold"),
+            height=45,
+            width=120
+        )
+        self._btn_about.pack(side="right")
     
     def _handle_start(self):
         if self._on_start:
@@ -79,6 +98,10 @@ class ControlPanel(ctk.CTkFrame):
     def _handle_clear(self):
         if self._on_clear:
             self._on_clear()
+    
+    def _handle_about(self):
+        if self._on_about:
+            self._on_about()
     
     def set_running(self, is_running: bool):
         """Define estado de execucao"""

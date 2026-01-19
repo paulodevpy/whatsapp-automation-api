@@ -12,7 +12,8 @@ from src.gui.components import (
     MessageEditor,
     PreviewPanel,
     ProgressPanel,
-    ControlPanel
+    ControlPanel,
+    BrandingPanel
 )
 from src.models import Contact, MessageTemplate
 from src.services import SpreadsheetService, WhatsAppService
@@ -34,7 +35,7 @@ class WhatsAppSenderApp:
         ctk.set_default_color_theme("green")
         
         self._root = ctk.CTk()
-        self._root.title("WhatsApp Sender")
+        self._root.title("🚀 WhatsApp Sender Pro - by @paulodevpy")
         self._root.geometry(f"{Dimensions.WINDOW_WIDTH}x{Dimensions.WINDOW_HEIGHT}")
         self._root.minsize(800, 600)
         self._root.resizable(True, True)
@@ -61,9 +62,13 @@ class WhatsAppSenderApp:
     
     def _create_layout(self):
         """Cria layout da interface"""
+        # Branding Panel (no topo)
+        self._branding_panel = BrandingPanel(self._root)
+        self._branding_panel.pack(fill="x", padx=10, pady=(10, 5))
+
         # Header
         self._create_header()
-        
+
         # Container principal
         main_container = ctk.CTkScrollableFrame(self._root, fg_color="transparent")
         main_container.pack(fill="both", expand=True, padx=20, pady=(0, 20))
@@ -120,7 +125,8 @@ class WhatsAppSenderApp:
             left_column,
             on_start=self._on_start,
             on_stop=self._on_stop,
-            on_clear=self._on_clear
+            on_clear=self._on_clear,
+            on_about=self._show_about
         )
         self._control_panel.pack(fill="x")
         self._control_panel.set_start_enabled(False)
@@ -321,6 +327,13 @@ class WhatsAppSenderApp:
         self._preview_panel.clear()
         self._progress_panel.clear()
         self._control_panel.set_start_enabled(False)
+    
+    def _show_about(self):
+        """Mostra diálogo sobre"""
+        from src.gui.components.branding_panel import BrandingPanel
+        # Cria uma instância temporária apenas para usar o método _show_about
+        temp_panel = BrandingPanel(self._root)
+        temp_panel._show_about()
     
     def run(self):
         """Executa a aplicacao"""

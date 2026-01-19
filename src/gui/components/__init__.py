@@ -4,11 +4,13 @@ from .message_editor import MessageEditor
 from .preview_panel import PreviewPanel
 from .progress_panel import ProgressPanel
 from .control_panel import ControlPanel
+from .branding_panel import BrandingPanel
 
 __all__ = [
     "FileSelector",
-    "MessageEditor", 
+    "MessageEditor",
     "PreviewPanel",
     "ProgressPanel",
-    "ControlPanel"
+    "ControlPanel",
+    "BrandingPanel"
 ]

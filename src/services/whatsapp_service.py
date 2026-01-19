@@ -40,49 +40,89 @@ class WhatsAppService:
     
     def _ensure_chromedriver(self) -> str:
         """Garante que o ChromeDriver esteja disponivel"""
+        import sys
+        import os
+
+        # Primeiro tenta usar o chromedriver empacotado (PyInstaller)
+        if getattr(sys, 'frozen', False):
+            # Estamos rodando como executável
+            base_path = os.path.dirname(sys.executable)
+            driver_path = os.path.join(base_path, "chromedriver.exe")
+            if os.path.exists(driver_path):
+                try:
+                    service = Service(driver_path)
+                    options = Options()
+                    options.add_argument("--headless")
+                    options.add_argument("--no-sandbox")
+                    driver = webdriver.Chrome(service=service, options=options)
+                    driver.quit()
+                    return driver_path
+                except Exception as e:
+                    print(f"ChromeDriver empacotado falhou: {e}")
+
+        # Tenta o chromedriver na pasta do projeto
         driver_path = Path(__file__).parent.parent.parent / "chromedriver.exe"
-        
-        # Verifica se ja existe e funciona
         if driver_path.exists():
             try:
-                # Testa se o driver funciona
                 service = Service(str(driver_path))
-                driver = webdriver.Chrome(service=service, options=Options().add_argument("--headless"))
+                options = Options()
+                options.add_argument("--headless")
+                options.add_argument("--no-sandbox")
+                driver = webdriver.Chrome(service=service, options=options)
                 driver.quit()
                 return str(driver_path)
-            except Exception:
-                pass  # Continua para baixar
+            except Exception as e:
+                print(f"ChromeDriver local falhou: {e}")
+
+        # Último recurso: usa webdriver-manager
+        try:
+            print("Tentando webdriver-manager...")
+            driver_path = ChromeDriverManager().install()
+            return driver_path
+        except Exception as e:
+            print(f"Webdriver-manager falhou: {e}")
+
+        # Se tudo falhar, tenta download manual
+        return self._download_chromedriver_manual()
+    
+    def _download_chromedriver_manual(self) -> str:
+        """Download manual do ChromeDriver como último recurso"""
+        driver_path = Path(__file__).parent.parent.parent / "chromedriver.exe"
         
-        # Detecta versao do Chrome
-        chrome_version = self._get_chrome_version()
-        if not chrome_version:
-            raise Exception("Google Chrome nao encontrado")
-        
-        major_version = chrome_version.split(".")[0]
-        
-        # Obtem versao do ChromeDriver
-        api_url = f"https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_{major_version}"
-        response = requests.get(api_url)
-        response.raise_for_status()
-        driver_version = response.text.strip()
-        
-        # Baixa o ChromeDriver win32
-        download_url = f"https://storage.googleapis.com/chrome-for-testing-public/{driver_version}/win32/chromedriver-win32.zip"
-        response = requests.get(download_url)
-        response.raise_for_status()
-        
-        # Extrai
-        with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
-            zip_ref.extractall("temp_driver")
-        
-        # Move o exe
-        extracted_exe = Path("temp_driver") / "chromedriver-win32" / "chromedriver.exe"
-        extracted_exe.replace(driver_path)
-        
-        # Limpa temp
-        shutil.rmtree("temp_driver", ignore_errors=True)
-        
-        return str(driver_path)
+        try:
+            # Detecta versao do Chrome
+            chrome_version = self._get_chrome_version()
+            if not chrome_version:
+                raise Exception("Google Chrome nao encontrado")
+            
+            major_version = chrome_version.split(".")[0]
+            
+            # Obtem versao do ChromeDriver
+            api_url = f"https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_{major_version}"
+            response = requests.get(api_url, timeout=10)
+            response.raise_for_status()
+            driver_version = response.text.strip()
+            
+            # Baixa o ChromeDriver win32
+            download_url = f"https://storage.googleapis.com/chrome-for-testing-public/{driver_version}/win32/chromedriver-win32.zip"
+            response = requests.get(download_url, timeout=30)
+            response.raise_for_status()
+            
+            # Extrai
+            with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
+                zip_ref.extractall("temp_driver")
+            
+            # Move o exe
+            extracted_exe = Path("temp_driver") / "chromedriver-win32" / "chromedriver.exe"
+            extracted_exe.replace(driver_path)
+            
+            # Limpa temp
+            shutil.rmtree("temp_driver", ignore_errors=True)
+            
+            return str(driver_path)
+            
+        except Exception as e:
+            raise Exception(f"Falha ao baixar ChromeDriver: {e}")
     
     def _get_chrome_version(self) -> Optional[str]:
         """Obtem a versao do Google Chrome via registro"""
