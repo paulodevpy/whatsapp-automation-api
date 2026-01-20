@@ -35,7 +35,7 @@ class FileSelector(ctk.CTkFrame):
             self,
             text=label,
             font=(Fonts.FAMILY, Fonts.SIZE_NORMAL, "bold"),
-            text_color=Colors.TEXT
+            text_color=Colors.TEXT_PRIMARY
         )
         self._label.pack(anchor="w", padx=10, pady=(10, 5))
         

@@ -22,7 +22,7 @@ class ProgressPanel(ctk.CTkFrame):
             self,
             text="Progresso",
             font=(Fonts.FAMILY, Fonts.SIZE_NORMAL, "bold"),
-            text_color=Colors.TEXT
+            text_color=Colors.TEXT_PRIMARY
         )
         label.pack(anchor="w", padx=10, pady=(10, 5))
         
@@ -92,7 +92,7 @@ class ProgressPanel(ctk.CTkFrame):
             self,
             font=(Fonts.FAMILY, Fonts.SIZE_SMALL),
             fg_color=Colors.SURFACE_LIGHT,
-            text_color=Colors.TEXT,
+            text_color=Colors.TEXT_PRIMARY,
             height=150,
             state="disabled"
         )

@@ -232,7 +232,8 @@ class WhatsAppSenderApp:
         confirm = messagebox.askyesno(
             "Confirmar Envio",
             f"Deseja enviar mensagens para {len(self._contacts)} contatos?\n\n"
-            "O navegador sera aberto. Escaneie o QR Code se necessario."
+            "O navegador sera aberto em modo visível.\n"
+            "Escaneie o QR Code se necessario (você tem 5 minutos)."
         )
         
         if not confirm:

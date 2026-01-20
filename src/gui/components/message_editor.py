@@ -61,7 +61,7 @@ class MessageEditor(ctk.CTkFrame):
             self,
             text="Mensagem",
             font=(Fonts.FAMILY, Fonts.SIZE_NORMAL, "bold"),
-            text_color=Colors.TEXT
+            text_color=Colors.TEXT_PRIMARY
         )
         label.pack(anchor="w", padx=10, pady=(10, 5))
         
@@ -96,7 +96,7 @@ class MessageEditor(ctk.CTkFrame):
             self,
             font=(Fonts.FAMILY, Fonts.SIZE_NORMAL),
             fg_color=Colors.SURFACE_LIGHT,
-            text_color=Colors.TEXT,
+            text_color=Colors.TEXT_PRIMARY,
             height=150
         )
         self._textbox.pack(fill="both", expand=True, padx=10, pady=(0, 10))
